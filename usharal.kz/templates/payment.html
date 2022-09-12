@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width;">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/myPosts.css">
+    <link rel="stylesheet" href="../static/css/scroll.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <title>{{title}}</title>
+</head>
+<body>
+    <div class="all">
+        <header>
+            <div class="headerChild">
+                <div class="text" title="Вернуться к главной странице"><a href="/" style='text-decoration:none' class="text">usharal.kz</a></div>
+                <div class="lang"><span class="langSpan rus chosen">рус </span>|<span class="qaz langSpan"> қаз</span></div>
+                <div class="moreItems">
+                    <div class="dropdown">
+                        <span class="fa-regular fa-user lng-personal"> Личный Кабинет</span>
+                        <div class="dropdown-content">
+                            {% for m in menu %}
+                            <a href="{{m.url}}" class="lng-message messages">{{m.name}}</a>
+                            {% endfor -%}
+                          </div>
+                    </div>
+                    <span class="fa-regular fa-heart lng-favourite-second favourite"> Избранные</span>
+                    <span class="fa-regular fa-comment lng-message-second messages"> Сообщения</span>
+                </div>
+                <div class="newObject">
+                    <button class="add lng-newPost">Подать объявление</button>
+                </div>
+                <div>
+                    <a style='text-decoration:none' class="text" href="{{uuurl}}">{{username}}</a>
+                </div>
+            </div>
+        </header>
+        <section class="messageSection active">
+            <div class="mask"></div>
+            <div class="messageSectionChild">
+                <div class="headerMessage">
+                    <div class="div1">
+                        <div class="divPart1">
+                            <span class="messageText">Платежи и счёт</span>
+                        </div>
+                    </div>
+                    <div class="div2">
+                        <div class="divPart2">
+                            <span class="messageLink message">Сообщения</span>
+                            <span class="messageLink lng-myPosts">Мои объявления</span>
+                            <span class="messageLink lng-payment activeLink">Платежи и счёт</span>
+                            <span class="messageLink lng-myProfile">Мой профиль</span>
+                        </div>
+                        
+                    </div>
+                </div>
+               <!--<section class="mainMessage activePart">
+                    <div class="contactSide">
+                        <div class="sellAndBye">
+                            <div class="sell activeLink btnSAB">Продаю</div>
+                            <div class="bye btnSAB">Покупаю</div>
+                        </div>
+                        <div class="messageCategories">
+                            <span class="allMessages messagesType activeLink">Все</span>
+                            <span class="favouriteMessages messagesType">Избранные</span>
+                            <span class="trashMessages messagesType">Корзина</span>
+                        </div>
+                    </div>
+                    <div class="messageSide"></div>
+                </section> -->
+                <section class="payment">
+                    <div class="paymentInner">
+                        <div class="paymentHeader">
+                            <div class="paymentCtg">
+                                <span class="catg activeLink">Все операции</span>
+                                <span class="catg">Пополнения</span>
+                                <span class="catg">Расходы</span>
+                            </div>
+                            <div class="searchPayment">
+                                <input type="text" placeholder="Поиск платежей...">
+                                <button class="fa-solid fa-search"></button>
+                            </div>
+                        </div>
+                        <div class="mainPayment">
+                            <div class="receiptsBox">
+                                <div class="introductionPart">
+                                    <span class="numberOfOperation">Номер операции</span>
+                                    <span class="dateOfOperation">Дата <i class="fa-solid arrow fa-angle-down"></i></span>
+                                    <span class="timeOfOperation">Время</span>
+                                    <span class="operation">Объявление</span>
+                                    <span class="sumOfOperation">Сумма</span>
+                                    
+
+                                </div>
+                                <div class="lineForReceipt">
+                                    <span class="numberOfOperation">6487357</span>
+                                    <span class="dateOfOperation">07/06/2022</span>
+                                    <span class="timeOfOperation">19:47</span>
+                                    <span class="operation">Перегородки из стекла(дом, офис, душ)</span>
+                                    <span class="sumOfOperation">700 000 &#8376;</span>
+                                </div>
+                                <div class="lineForReceipt">
+                                    <span class="numberOfOperation">6487357</span>
+                                    <span class="dateOfOperation">07/06/2022</span>
+                                    <span class="timeOfOperation">19:47</span>
+                                    <span class="operation">Перегородки из стекла(дом, офис, душ)</span>
+                                    <span class="sumOfOperation">700 000 &#8376;</span>
+                                </div>
+                            </div>
+                            <div class="lineForButton">
+                                <div class="arrowForPages">
+                                    <span class="fa-solid  ChildArrow fa-angle-left"></span>
+                                    <span class="spanWithNumber">
+                                        <span class="current">1</span>
+                                    <span class="allPossible">/1</span>
+                                    </span>
+                                    <span class="fa-solid  ChildArrow fa-angle-right"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+               
+
+                
+                
+            </div>
+        </section>
+        
+        <footer>
+            <div class="footerChild">
+                <div class="first">
+                    <div class="text">usharal.kz<i class="fa-thin fa-calendar-circle-minus"></i></div>
+                    <div>@ 2022 usharal.kz - все права защищены</div>
+                    <div class="map">Карта сайта</div>
+                </div>
+                <div class="second">
+                    <div class="text">Контакты</div>
+                    <a href="" class="secondA">usharal_kz@gmail.com</a>
+                    <a href="" class="secondA">+7(705) 332 2343</a>
+                </div>
+                <div class="third">
+                    <button class="up fa fa-arrow-up"></button>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div class="shadow">
+        <div class="cityList">
+            <div class="inputModal">
+                <input type="text" name="" id="" placeholder="Введите название" spellcheck="true">
+            </div>
+            <ul class="ul">
+                <li>Алматинская область</li>
+                <li>Акмолинская область</li>
+                <li>Атырауская область</li>
+                <li>Актюбинская область</li>
+                <li>Восточно-Казахстанская область</li>
+                <li>Жамбылская область</li>
+                <li>Западно-Казахстанская область</li>
+                <li>Карагандинская область</li>
+                <li>Костанайская область</li>
+                <li>Кызылординская область</li>
+                <li>Мангистауская область</li>
+                <li>Павлодарская область</li>
+                <li>Северо-Казахстанская область</li>
+                <li>Туркестанская  область</li>
+                <li>Нур-Султан</li>
+                <li>Алматы</li>
+                <li>Шымкент</li>
+            </ul>
+            <ul class="ul">
+                <li>Услуги</li>
+                <li>Электроника</li>
+                <li>Личные вещи</li>
+                <li>Детям</li>
+                <li>Для Бизнеса</li>
+                <li>Животные</li>
+                <li>Для дома</li>
+                <li>Работа</li>
+                <li>Хобби и спорт</li>
+                <li>Недвижимость</li>
+                <li>Транспорт</li>
+            </ul>
+        </div>
+    </div>
+    <script src="../static/js/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+    <script src="https://kit.fontawesome.com/db48927ab0.js" crossorigin="anonymous"></script>
+    <!-- <script src="js/scroll.js"></script> -->
+    <script src="../static/js/payment.js"></script>
+    <script src="../static/js/lang.js"></script>
+    <!-- <script src="js/counter.js"></script> -->
+    <style>
+        *{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+</body>
+</html>

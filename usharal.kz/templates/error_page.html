@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width;">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/myPosts.css">
+    <link rel="stylesheet" href="../static/css/scroll.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <title>{{title}}</title>
+</head>
+<body>
+    <div class="all">
+        <header>
+            <div class="headerChild">
+                <div class="text" title="Вернуться к главной странице"><a href="/" style='text-decoration:none' class="text">usharal.kz</a></div>
+                <div class="lang"><span class="langSpan rus chosen">рус </span>|<span class="qaz langSpan"> қаз</span></div>
+                <div class="moreItems">
+                    <div class="dropdown">
+                        <span class="fa-regular fa-user lng-personal"> Личный Кабинет</span>
+                        <div class="dropdown-content">
+                            {% for m in menu %}
+                            <a href="{{m.url}}" class="lng-message messages">{{m.name}}</a>
+                            {% endfor -%}
+                          </div>
+                    </div>
+                    <span class="fa-regular fa-heart lng-favourite-second favourite"> Избранные</span>
+                    <span class="fa-regular fa-comment lng-message-second messages"> Сообщения</span>
+                </div>
+                <div class="newObject">
+                    <button class="add lng-newPost">Подать объявление</button>
+                </div>
+            </div>
+        </header>
+        
+        <h1>Неправильная ссылка для восстановления пароля либо она просрочена</h1>
+        <a href="{{url_for('index')}}">Вернуться на Главную</a>
+    </div>
+</body>
+</html>

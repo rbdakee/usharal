@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+    }
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            background-color: #e5e5e5;
+        }
+        .loginSection{
+            height: 70%;
+            width: 40%;
+            margin: auto;
+            border-radius: 10px;
+            background-color: #fff;
+            overflow: hidden;
+            box-shadow: 4px 4px 8px 12px rgba(34, 60, 80, 0.2);
+        }
+        
+        form{
+            width: 100%;
+            height: 100%;
+            background-color: #fff;
+        }
+        .firstBlock{
+            width: 100%;
+            height: 50px;
+            display: flex;
+            background-color: #fff;
+
+        }
+        .firstBlock div{
+            height: 100%;
+            width: 50%;
+            display: flex;
+            align-items:center;
+            justify-content: center;
+            font-size: large;
+            border-bottom: 2px solid #f3f3f3;
+            color: #2F323A;
+        }
+        .activeAuth{
+            color: #ffc53a !important ;
+            border-bottom: 2px solid #ffc53a !important ;
+            height: 60%;
+            width: 40%;
+        }
+        input[type=text], input[type=password], input[type=email] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  background-color: #f3f3f3;
+}
+
+button {
+  background-color: #ffc53a;
+  color: white;
+  font-size: large;
+  border-radius: 10px;
+  padding: 10px 20px;
+  margin: 8px auto;
+  border: none;
+  cursor: pointer;
+  width: 50%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.imgcontainer {
+  text-align: center;
+  margin: 24px 0 12px 0;
+}
+
+img.avatar {
+  width: 40%;
+  border-radius: 50%;
+}
+
+.container {
+  padding: 16px;
+  background-color: #fff;
+ 
+}
+form.active{
+    display: unset !important;
+}
+form{
+    display: none;
+}
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+.submitLine{
+    margin-top: 15px;
+    display: flex;
+    width: 100%;
+}
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}
+.forgetLine{
+    width: 100%;
+    text-align: center;
+}
+.warn{
+    border: 1px solid red;
+}
+.flash{
+    text-align: center;
+    border: 1px, solid, #FF4343;
+    background: #FF9C9C;
+}
+    </style>
+</head>
+<body>
+    <section class="loginSection">
+        <div class="firstBlock">
+            <div class="loginPart activeAuth">
+                Вход
+            </div>
+            <div class="regPart">
+                Регистрация
+            </div>
+        </div>
+        {% for msg in get_flashed_messages() %}
+            <div class="flash">{{msg}}</div>
+            {% endfor %}
+        <form action="/authentification" method="post" class="active">
+            <div class="container">
+                <label for="newuname"><b>Имя пользоватея</b></label>
+                <input type="text" placeholder="Имя пользователя" name="newuname" required>
+
+                <label for="email"><b>E-mail</b></label>
+                <input type="email" placeholder="E-mail" name="email" required>
+
+                <label for="psw"><b>Пароль</b></label>
+                <input type="password" placeholder="Пароль" name="psw" required>
+
+                <div class="forgetLine">
+                    <a href="{{'forgot'}}">Забыли Пароль?</a>
+                </div>
+                <div class="submitLine">
+                    <button type="submit">Войти</button>
+                </div>
+                
+              </div>
+        </form>
+
+        <form action="/authentification" method="post" class="">
+            <div class="container">
+                <label for="newuname"><b>Имя пользоватея</b></label>
+                <input type="text" placeholder="Имя пользователя" name="newuname" required>
+                
+                <label for="newemail"><b>E-mail</b></label>
+                <input type="email" placeholder="E-mail" name="newemail" required>
+
+                <label for="newpsw"><b>Пароль</b></label>
+                <input type="password" placeholder="Пароль" name="newpsw" required>
+                <label>
+                    <input type="checkbox"  name="rules" required> Я соглашаюсь с правилами использования сервиса
+                  </label>
+                <div class="submitLine">
+                    <button type="submit" onclick="check()">Регистрация</button>
+                </div>
+                
+              </div>
+        </form>
+
+     </section>
+    <script>
+        var parts = document.querySelectorAll('.firstBlock div')
+        
+        parts.forEach((each, index) => {
+            each.addEventListener('click', () => {
+                document.querySelector('.activeAuth').classList.remove('activeAuth')
+                each.classList.add('activeAuth')
+                document.querySelector('form.active').classList.remove('active')
+                document.querySelectorAll('form')[index].classList.add('active')
+                // alert(getComputedStyle(document.querySelector('.container')).display)
+            })
+        })
+        const check =(btn) => {
+            // btn.parentNode.parentNode.querySelectorAll('input').forEach((eachInput, index) => {
+            //     if(eachInput.length == 0){
+            //         eachInput.classList.add('warn')
+            //     }
+                
+            // })
+        }
+    </script>
+    <style>
+        *{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+        }
+    </style>
+</body>
+</html>

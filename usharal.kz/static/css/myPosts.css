@@ -1,0 +1,306 @@
+.myPosts{
+    
+    width: 100%;
+    height: auto;
+    overflow:hidden;
+}
+.myPostsInner{
+    width: 60%;
+    margin: auto;
+    height: auto;
+    display: block;
+
+}
+.myPostsInner .header {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+.allStatusOfPosts{
+    width: 70%;
+    height: 80%;
+    border: none;
+    display: flex;
+}
+.allStatusOfPosts span{
+    font-size: 0.9rem;
+    margin: auto;
+    width: 33.34%;
+    text-align: center;
+    cursor: pointer;
+    margin-bottom:5px ;
+    color: #2F323A;
+    border-bottom: 0.5px solid;
+    font-weight: bold;
+    padding-bottom: 8px;
+}
+.searchPart{
+    
+}
+.searchPartMy input{
+    width: 100%;
+    height: 100%;
+    padding-left: 20px;
+    margin-left: 3px;
+    border: none;
+    background-color: #e5e5e5;
+    font-size: 15px;
+    
+    
+
+}
+
+
+.header .searchPartMy{
+    width: 100%;
+    height: 50px;
+    margin-top: 2%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border-radius: 7px;
+    border: 0.5px solid #6d6b6ba6;
+}
+.header .searchPartMy .searchControl{
+    border: none;
+    width: 100%;
+}
+:is(.searchPartMy) :is(.allCat, .sort){
+    display: flex;
+    height: 100%;
+    width: 45%;
+    align-items: center;
+    margin-left: 2%;
+    justify-content: flex-start;
+}
+.mainMyPostsContent, .nonActivePosts, .trashMyPostsContent{
+    min-height: 800px !important;
+    width: 100%;
+    margin-top: 15px;
+    height: auto;
+    display: block;
+}
+.trashMyPostsContents{
+    /* width: 100%;
+    height: 100vh; */
+}
+.none{
+    display: none;
+}
+.chooseAllAndDel{
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+}
+input#check{
+    width: 20px;
+    height: 20px;
+    
+}
+.chooseDiv{
+    display: flex;
+    align-items: center;
+}
+.chooseDiv label{
+    margin-left: 10px;
+}
+.chooseAllAndDel a{
+    color: black;
+    font-weight: bold;
+}
+.allMyContent{
+    width: 100%;
+    height: auto;
+    display: unset;
+    
+}
+.myContent{
+    width: 100%;
+    height: 11em;
+    display: flex;
+    margin: auto;
+    margin-top: 1em;
+}
+.lineForCheckbox{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.boxForCon{
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 16px;
+    display: flex;
+    margin-left: 10px;
+    overflow: hidden;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.bottomBut{
+    width: 80%;
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.lineForNewButtons{
+    height: 80%;
+    
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.newCreatedButton{
+    margin: 0 5px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+}
+.boxForCon .forImg{
+    width: 23%;
+    height: 100%;
+}
+.forImg img{
+    width: 100%;
+    height: 100% ;
+}
+.forMainContent{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+/* .forMainContent *{
+    border: 1px solid;
+} */
+.forMainContent .texts{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 100%;
+    height: 70%;
+    padding:10px
+}
+.a{
+    font-size: smaller;
+    display:flex;
+    align-items: center;
+    
+    
+}
+a{
+    color: #2A81DD;
+}
+.bold{
+    font-weight: bold;
+}
+.nameOfTheProduct{
+    font-size: 0.9em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+.blocks{
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+}
+.blocks .cost{
+    font-weight:bold;
+    font-size: large;
+}
+.blocks .isFree{
+    font-size: small;
+    color: #2f323ac7;
+    margin-left: 10px;
+    text-align: center;
+}
+.texts div{
+    display: flex;
+    align-items: center;
+}
+.dataDate span{
+    color: #2f323aa9;
+    font-size: 13px;
+}
+.dataDate{
+    margin-top: -10px;
+}
+.allMyContent.visible{
+    display: unset;
+}
+.myContentAngle span{
+    font-size: 1.5em;
+    color: #2f323aa0;
+}
+.chosenButton{
+    background-color: #ffc53a;
+    color: #fff;
+}
+.lastButtons{
+    display: none;
+}
+.fa-angles-right, .fa-angles-left{
+    margin: 0 30px;
+}
+.mpc{
+    display: none;
+}
+.mpc.active{
+    display: block;
+}
+.delAll span{
+    text-decoration:underline;
+}
+.deleteDate{
+    margin-left: 20px;
+}
+.calen{
+    font-size: large;
+}
+.buttonArea{
+    width: 100%;
+    /*height: 1.5em;*/
+    display: flex;
+    justify-content: space-around;
+    }
+.viewPort
+{
+    height: 100%;
+    width: 10%;
+}
+.buttons{
+    height: 90%;
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.buttons button{
+    border: 2px solid #ffc53a;
+    height: 100%;
+    width: 26%;
+    background-color: transparent;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.blocks{
+    width: 100%;
+    height: 18.7%;
+    margin: auto;
+}
+.signs{
+    height: 100%;
+    min-width: 20%;
+    width: auto;
+    font-size:0.8em;
+    color: #2f323aa9;
+    display: flex;
+    align-items: center;
+    justify-content: space-around   ;
+}

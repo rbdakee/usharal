@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width;">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/myPosts.css">
+    <link rel="stylesheet" href="../static/css/scroll.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <title>{{title}}</title>
+</head>
+<body>
+    <div class="all">
+        <header>
+            <div class="headerChild">
+                <div class="text" title="Вернуться к главной странице"><a href="/" style='text-decoration:none' class="text">usharal.kz</a></div>
+                <div class="lang"><span class="langSpan rus chosen">рус </span>|<span class="qaz langSpan"> қаз</span></div>
+                <div class="moreItems">
+                    <div class="dropdown">
+                        <span class="fa-regular fa-user lng-personal"> Личный Кабинет</span>
+                        <div class="dropdown-content">
+                            {% for m in menu %}
+                            <a href="{{m.url}}" class="lng-message messages">{{m.name}}</a>
+                            {% endfor -%}
+                          </div>
+                    </div>
+                    <span class="fa-regular fa-heart lng-favourite-second favourite"> Избранные</span>
+                    <span class="fa-regular fa-comment lng-message-second messages"> Сообщения</span>
+                </div>
+                <div class="newObject">
+                    <button class="add lng-newPost">Подать объявление</button>
+                </div>
+                <div>
+                    <a style='text-decoration:none' class="text" href="{{uuurl}}">{{username}}</a>
+                </div>
+            </div>
+        </header>
+        <section class="messageSection active">
+            <div class="mask"></div>
+            <div class="messageSectionChild">
+                <div class="headerMessage">
+                    <div class="div1">
+                        <div class="divPart1">
+                            <span class="messageText">Мой профиль</span>
+                        </div>
+                    </div>
+                    <div class="div2">
+                        <div class="divPart2">
+                            <span class="messageLink message">Сообщения</span>
+                            <span class="messageLink lng-myPosts">Мои объявления</span>
+                            <span class="messageLink lng-payment">Платежи и счёт</span>
+                            <span class="messageLink lng-myProfile activeLink">Мой профиль</span>
+                        </div>
+                        
+                    </div>
+                </div>
+                <section class="myProfile">
+                    <div class="myProfileInner">
+                        <div class="box boxForMainInformation">
+                            <div class="mainTitle inner">
+                                <h1>Редактировать профиль</h1>
+                            </div>
+                            <div class="spanWithInput inner">
+                                <div><span class="firstPart">Ваше имя</span><span class="secondPart"> (не менее 4 символов)</span></div>
+                                <input type="text">
+                            </div>
+                            <div class="spanWithInput inner">
+                                <div><span class="firstPart">Фото или логотип</span><span class="secondPart"> (Формат - jpg или png, максимальный размер 5 Мб)</span></div>
+                                <div class="boxForImage withBack">
+                                    <img src="../static/img/Vector.svg"width = "50"alt="" class="imageOfUser">
+                                    <input type="file" onchange = "showFile(this)"accept="image/gif, image/jpeg, image/png, image/svg" name="" class="file">
+                                    
+                                </div>
+                                
+                            </div>
+                            <div class="spanWithInput inner">
+                                <div><span class="firstPart">Адрес</span><span class="secondPart"></span></div>
+                                <input type="text">
+                            </div>
+                            <div class="spanWithInput inner">
+                                <div><span class="firstPart">Телефон</span><span class="secondPart"></span></div>
+                                <input type="text">
+                            </div>  
+                            <div class="saveLine inner">
+                                <button class="save">Сохранить</button>
+                            </div>
+                        </div>
+                        <div class="box boxForChangingPassword">
+                            <div class="mainTitle inner">
+                                <h1>Изменить пароль</h1>
+                            </div>
+                            <div class="spanWithInput inner">
+                                <div><span class="firstPart">Текущий пароль*</span><span class="secondPart"></span></div>
+                                <input type="text">
+                            </div>
+                            <div class="spanWithInput inner">
+                                <div><span class="firstPart">Новый пароль*</span><span class="secondPart"></span></div>
+                                <input type="text">
+                            </div>
+                            <div class="saveLine inner">
+                                <button class="saveNewPassword">Изменить пароль</button>
+                            </div>
+                        </div>
+                        <div class="box boxForChangingMail">
+                            <div class="mainTitle inner">
+                                <h1>Изменить email-адрес</h1>
+                            </div>
+                            <div class="spanWithInput inner">
+                                <div><span class="firstPart">Новый email-адрес*</span><span class="secondPart"></span></div>
+                                <input type="text">
+                            </div>
+                            <div class="saveLine inner">
+                                <button class="saveNewEmail">Изменить email-адрес</button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </section>
+        
+        <footer>
+            <div class="footerChild">
+                <div class="first">
+                    <div class="text">usharal.kz<i class="fa-thin fa-calendar-circle-minus"></i></div>
+                    <div>@ 2022 usharal.kz - все права защищены</div>
+                    <div class="map">Карта сайта</div>
+                </div>
+                <div class="second">
+                    <div class="text">Контакты</div>
+                    <a href="" class="secondA">usharal_kz@gmail.com</a>
+                    <a href="" class="secondA">+7(705) 332 2343</a>
+                </div>
+                <div class="third">
+                    <button class="up fa fa-arrow-up"></button>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div class="shadow">
+        <div class="cityList">
+            <div class="inputModal">
+                <input type="text" name="" id="" placeholder="Введите название" spellcheck="true">
+            </div>
+            <ul class="ul">
+                <li>Алматинская область</li>
+                <li>Акмолинская область</li>
+                <li>Атырауская область</li>
+                <li>Актюбинская область</li>
+                <li>Восточно-Казахстанская область</li>
+                <li>Жамбылская область</li>
+                <li>Западно-Казахстанская область</li>
+                <li>Карагандинская область</li>
+                <li>Костанайская область</li>
+                <li>Кызылординская область</li>
+                <li>Мангистауская область</li>
+                <li>Павлодарская область</li>
+                <li>Северо-Казахстанская область</li>
+                <li>Туркестанская  область</li>
+                <li>Нур-Султан</li>
+                <li>Алматы</li>
+                <li>Шымкент</li>
+            </ul>
+            <ul class="ul">
+                <li>Услуги</li>
+                <li>Электроника</li>
+                <li>Личные вещи</li>
+                <li>Детям</li>
+                <li>Для Бизнеса</li>
+                <li>Животные</li>
+                <li>Для дома</li>
+                <li>Работа</li>
+                <li>Хобби и спорт</li>
+                <li>Недвижимость</li>
+                <li>Транспорт</li>
+            </ul>
+        </div>
+    </div>
+    <script src="../static/js/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+    <script src="https://kit.fontawesome.com/db48927ab0.js" crossorigin="anonymous"></script>
+    <!-- <script src="js/scroll.js"></script> -->
+    <script src="../static/js/myProfile.js"></script>
+    <script src="../static/js/lang.js"></script>
+    <!-- <script src="js/counter.js"></script> -->
+    <style>
+        *{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+</body>
+</html>

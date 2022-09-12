@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width;">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/myPosts.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/scroll.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <title>{{title}}</title>
+</head>
+<body>
+    <div class="all">
+        <header>
+            <div class="headerChild">
+                <div class="text" title="Вернуться к главной странице"><a href="/" style='text-decoration:none' class="text">usharal.kz</a></div>
+                <div class="lang"><span class="langSpan rus chosen">рус </span>|<span class="qaz langSpan"> қаз</span></div>
+                <div class="moreItems">
+                    <div class="dropdown">
+                        <span class="fa-regular fa-user lng-personal"> Личный Кабинет</span>
+                        <div class="dropdown-content">
+                            {% for m in menu %}
+                            <a href="{{m.url}}" class="lng-message messages">{{m.name}}</a>
+                            {% endfor -%}
+                          </div>
+                    </div>
+                    <span class="fa-regular fa-heart lng-favourite-second favourite"> Избранные</span>
+                    <span class="fa-regular fa-comment lng-message-second messages"> Сообщения</span>
+                </div>
+                <div class="newObject">
+                    <a href="{{'newpost'}}"><button class="add lng-newPost">Подать объявление</button></a>
+                </div>
+                <div>
+                    <a style='text-decoration:none' class="text" href="{{uuurl}}">{{username}}</a>
+                </div>
+            </div>
+        </header>
+        
+        <section class="mainSection active">
+            <div class="mask"></div>
+            <div class="sectionChild">
+                <div class="searchAndCateg">
+                    <div class="searchArea">
+                        <div onclick="myFunction(this.className)"class="wholeList">
+                            <button  class="wholeList-btn">Все категории <i class="fas arrow fa-angle-down"></i></button>
+                            <div id="myDropdown" class="wholeList-content">
+                              <a href="#">Все категории</a> 
+                            </div>
+                          </div>
+                          <div class="inputArea">
+                            <input type="text" placeholder="Найти объявление..." name="" id="">
+                          </div>
+                          <div onclick="modal()" class="location">
+                            <button class="location-btn"><i class="fas fa-location-dot"></i>Весь Казахстан </button>
+                           
+                          </div>
+                          <div class="searchBtn">
+                            <button class="fas fa-search"></button>
+                          </div>
+                    </div>
+                    <div class="allCategories">
+                        <div class="allCategoriesChild">
+                            <div class="category">
+                                <img class="categoryImage" src="../static/img/services.svg" alt="">
+                                <span class="textForImg lng-service">Услуги</span>
+                            </div>
+                            <div class="category">
+                                <img class="categoryImage" src="../static/img/gadgets.svg" alt="">
+                                <span class="textForImg lng-gadgets">Электроника</span>
+                            </div>
+                            <div class="category">
+                                <img class="categoryImage" src="../static/img/personalItems.svg" alt="">
+                                <span class="textForImg lng-personalItems">Личные вещи</span>
+                            </div>
+                            <div class="category">
+                                <img class="categoryImage" src="../static/img/child.svg" alt="">
+                                <span class="textForImg lng-child">Детям</span>
+                            </div>
+                            <div class="category">
+                                <img class="categoryImage" src="../static/img/business.svg" alt="">
+                                <span class="textForImg lng-business">Для Бизнеса</span>
+                            </div>
+                            <div class="category">
+                                <img class="categoryImage" src="../static/img/animals.svg" alt="">
+                                <span class="textForImg lng-animals">Животные</span>
+                            </div>
+                            <div class="category">
+                                <img class="categoryImage" src="../static/img/garden.svg" alt="">
+                                <span class="textForImg lng-house">Для дома</span>
+                            </div>
+                            <div class="category">
+                                <img class="categoryImage" src="../static/img/job.svg" alt="">
+                                <span class="textForImg lng-job">Работа</span>
+                            </div>
+                            <div class="category">
+                                <img class="categoryImage" src="../static/img/hobby.svg" alt="">
+                                <span class="textForImg lng-hobby">Хобби и спорт</span>
+                            </div>
+                            <div class="category">
+                                <img class="categoryImage" src="../static/img/apartments.svg" alt="">
+                                <span class="textForImg lng-apartments">Недвижимость</span>
+                            </div>
+                            <div class="category">
+                                <img class="categoryImage" src="../static/img/transport.svg" alt="">
+                                <span class="textForImg lng-transport">Транспорт</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="boxForAllAdver">
+                    <div class="premiumAdver">
+                        <div class="areaForTextPremium">
+                            <div class="someText">
+                                <span class="mainText lng-premium">Премиум объявления</span>
+                                <a href="" class="want lng-want">Хочу Сюда!</a>
+                            </div>
+                            <div class="buttonPremium">
+                                <button class="fa-solid fa-angle-left prev"></button>
+                                <button class="fa-solid fa-angle-right next"></button>
+                            </div>
+                        </div>
+                        <div class="slider">
+                            <div class="contentBox">
+                                <div class="forImgContent">
+                                    <div class="top">VIP</div>
+                                    <img src="../static/img/apartments.svg" alt="">
+                                </div>
+                                <div class="dataContent">Вчера в 21:40  </div>
+                                <div class="titleContent">Какой то апартамент, хороший, очень советую</div>
+                                <div class="costContent">90.000 1 &#8376;</div>
+                                <div class="statusContent">
+                                    <span>Договорная</span>
+                                    <span class="fa-regular fa-heart" onclick="fill(this)"></span>
+                                </div>
+                            </div>
+                            <div class="contentBox">
+                                <div class="forImgContent">
+                                    <div class="top">VIP</div>
+                                    <img src="../static/img/apartments.svg" alt="">
+                                </div>
+                                <div class="dataContent">Вчера в 21:40  </div>
+                                <div class="titleContent">Какой то апартамент, хороший, очень советую</div>
+                                <div class="costContent">90.000 1 &#8376;</div>
+                                <div class="statusContent">
+                                    <span>Договорная</span>
+                                    <span class="fa-regular fa-heart" onclick="fill(this)"></span>
+                                </div>
+                            </div>
+                            <div class="contentBox">
+                                <div class="forImgContent">
+                                    <div class="top">VIP</div>
+                                    <img src="../static/img/apartments.svg" alt="">
+                                </div>
+                                <div class="dataContent">Вчера в 21:40  </div>
+                                <div class="titleContent">Какой то апартамент, хороший, очень советую</div>
+                                <div class="costContent">90.000 1 &#8376;</div>
+                                <div class="statusContent">
+                                    <span>Договорная</span>
+                                    <span class="fa-regular fa-heart" onclick="fill(this)"></span>
+                                </div>
+                            </div>
+                            <div class="contentBox">
+                                <div class="forImgContent">
+                                    <div class="top">VIP</div>
+                                    <img src="../static/img/apartments.svg" alt="">
+                                </div>
+                                <div class="dataContent">Вчера в 21:40  </div>
+                                <div class="titleContent">Какой то апартамент, хороший, очень советую</div>
+                                <div class="costContent">90.000 1 &#8376;</div>
+                                <div class="statusContent">
+                                    <span>Договорная</span>
+                                    <span class="fa-regular fa-heart" onclick="fill(this)"></span>
+                                </div>
+                            </div>
+                            <div class="contentBox">
+                                <div class="forImgContent">
+                                    <div class="top">VIP</div>
+                                    <img src="../static/img/apartments.svg" alt="">
+                                </div>
+                                <div class="dataContent">Вчера в 21:40  </div>
+                                <div class="titleContent">Какой то апартамент, хороший, очень советую</div>
+                                <div class="costContent">90.000 1 &#8376;</div>
+                                <div class="statusContent">
+                                    <span>Договорная</span>
+                                    <span class="fa-regular fa-heart" onclick="fill(this)"></span>
+                                </div>
+                            </div>
+                            <div class="contentBox">
+                                <div class="forImgContent">
+                                    <div class="top">VIP</div>
+                                    <img src="../static/img/apartments.svg" alt="">
+                                </div>
+                                <div class="dataContent">Вчера в 20:40  </div>
+                                <div class="titleContent">Какой то апартамент, хороший, очень советую</div>
+                                <div class="costContent">90.000 1 &#8376;</div>
+                                <div class="statusContent">
+                                    <span>Договорная</span>
+                                    <span class="fa-regular fa-heart" onclick="fill(this)"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mainAllAdver">
+                        <div class="allAdver">
+                            <div class="areaForText">
+                                <span class="mainText lng-main">Все объявления</span>
+                            </div>
+                            <div class="mainAllAdverWithButtonLine">
+                                <div class="adverLine">
+                                    <div class="contentBoxNew">
+                                        <div class="forImgContent">
+                                            <img src="" alt="">
+                                        </div>
+                                        <div class="dataContent"></div>
+                                        <div class="titleContent"></div>
+                                        <div class="costContent"></div>
+                                        <div class="statusContent">
+                                            <span></span>
+                                            <span class="fa-regular fa-heart" onclick="fill(this)"></span>
+                                        </div>
+                                    </div>
+                                    <div class="contentBox">
+                                        <div class="forImgContent">
+                                            <div class="top">VIP</div>
+                                            <img src="../static/img/apartments.svg" alt="">
+                                        </div>
+                                        <div class="dataContent">Вчера в 21:40  </div>
+                                        <div class="titleContent">Какой то апартамент, хороший, очень советую</div>
+                                        <div class="costContent">90.000 1 &#8376;</div>
+                                        <div class="statusContent">
+                                            <span>Договорная</span>
+                                            <span class="fa-regular fa-heart" onclick="fill(this)"></span>
+                                        </div>
+                                    </div>
+                                    <div class="contentBoxNew">
+                                        <div class="forImgContent">
+                                            <div class="top">VIP</div>
+                                            <img src="../static/img/apartments.svg" alt="">
+                                        </div>
+                                        <div class="dataContent">Вчера в 21:40  </div>
+                                        <div class="titleContent">Какой то апартамент, хороший, очень советую</div>
+                                        <div class="costContent">90.000 1 &#8376;</div>
+                                        <div class="statusContent">
+                                            <span>Договорная</span>
+                                            <span class="fa-regular fa-heart" onclick="fill(this)"></span>
+                                        </div>
+                                    </div>
+                                    <!--  -->
+                                    
+                                </div>
+                                <div class="buttonLine">
+                                    <button сlass = "showMore lng-more">Показать ещё <i class="fa-solid arrow fa-angle-down"></i></button>
+
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <div class="footerChild">
+                <div class="first">
+                    <div class="text">usharal.kz<i class="fa-thin fa-calendar-circle-minus"></i></div>
+                    <div>@ 2022 usharal.kz - все права защищены</div>
+                    <div class="map">Карта сайта</div>
+                </div>
+                <div class="second">
+                    <div class="text">Контакты</div>
+                    <a href="" class="secondA">usharal_kz@gmail.com</a>
+                    <a href="" class="secondA">+7(705) 332 2343</a>
+                </div>
+                <div class="third">
+                    <button class="up fa fa-arrow-up"></button>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div class="shadow">
+        <div class="cityList">
+            <div class="inputModal">
+                <input type="text" name="" id="" placeholder="Введите название" spellcheck="true">
+            </div>
+            <ul class="ul">
+                <li>Алматинская область</li>
+                <li>Акмолинская область</li>
+                <li>Атырауская область</li>
+                <li>Актюбинская область</li>
+                <li>Восточно-Казахстанская область</li>
+                <li>Жамбылская область</li>
+                <li>Западно-Казахстанская область</li>
+                <li>Карагандинская область</li>
+                <li>Костанайская область</li>
+                <li>Кызылординская область</li>
+                <li>Мангистауская область</li>
+                <li>Павлодарская область</li>
+                <li>Северо-Казахстанская область</li>
+                <li>Туркестанская  область</li>
+                <li>Нур-Султан</li>
+                <li>Алматы</li>
+                <li>Шымкент</li>
+            </ul>
+            <ul class="ul">
+                <li>Услуги</li>
+                <li>Электроника</li>
+                <li>Личные вещи</li>
+                <li>Детям</li>
+                <li>Для Бизнеса</li>
+                <li>Животные</li>
+                <li>Для дома</li>
+                <li>Работа</li>
+                <li>Хобби и спорт</li>
+                <li>Недвижимость</li>
+                <li>Транспорт</li>
+            </ul>
+        </div>
+    </div>
+    <script src="../static/js/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+    <script src="https://kit.fontawesome.com/db48927ab0.js" crossorigin="anonymous"></script>
+    <script src="../static/js/scroll.js"></script>
+    <script src="../static/js/index.js"></script>
+    <script src="../static/js/lang.js"></script>
+    <!-- <script src="js/counter.js"></script> -->
+    <style>
+        *{
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif !important;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+</body>
+</html>
